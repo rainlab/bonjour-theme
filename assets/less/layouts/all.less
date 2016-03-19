@@ -6,15 +6,37 @@
 
 // Used by the fixed navigation
 body {
-    padding-top: 50px;
+    background: #ECE9E6; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #ECE9E6 , #FFFFFF); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #ECE9E6 , #FFFFFF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 header#layout-header {
+}
+
+nav#layout-nav {
+    padding: 1em 0;
+    margin-bottom: 0;
+    background: rgba(255,255,255,.8);
+
     .navbar-brand {
         padding-left: 50px;
+        margin-right: 20px;
         background-image: url('../images/october.png');
         background-size: auto 80%;
         background-repeat: no-repeat;
         background-position: 7px 50%;
+    }
+
+    .navbar-toggle .icon-bar {
+        background-color: #292929;
+    }
+
+    .navbar-nav {
+        > li > a {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #292929;
+        }
     }
 }

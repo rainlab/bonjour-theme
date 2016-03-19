@@ -2,9 +2,46 @@ title = "Demonstration"
 url = "/"
 layout = "default"
 ==
-<div class="jumbotron">
-    <div class="container">
-        Bonjour!
+<div class="container">
+    <div id="homeGreetings" class="home-greetings">
+        <h1>Hello</h1>
+        <h1>Bonjour</h1>
+        <h1>Hola</h1>
+        <h1>Привет</h1>
+        <h1>Hallo</h1>
+        <h1>Ahoj</h1>
+        <h1>Χαίρετε</h1>
+        <h1>Olá</h1>
+        <h1>Ciao</h1>
+        <h1>Salut</h1>
+        <h1>こんにちは</h1>
+        <h1>Sveiki</h1>
+        <h1>Cześć</h1>
+        <h1>Buna</h1>
+        <h1>你好</h1>
+        <h1>Hallå</h1>
+        <h1>Merhaba</h1>
     </div>
 </div>
 
+{% put scripts %}
+    <script>
+        function swap() {
+            $('#homeGreetings h1:visible').each(function(){
+                $(this).fadeOut(500);
+                if ($(this).next().length > 0) $(this).next().fadeIn(1000);
+                else $('#homeGreetings h1:first').fadeIn(1000)
+            });
+        }
+
+        $('#homeGreetings')
+            .addClass('is-loaded')
+            .find('h1:not(:first)')
+            .hide();
+
+        setTimeout(function() {
+            setInterval(swap, 2000);
+        }, 1000)
+
+    </script>
+{% endput %}
