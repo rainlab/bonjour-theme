@@ -1,0 +1,8 @@
+name: Bonjour
+description: 'A sample multi-lingual theme for translated content.'
+author: RainLab
+homepage: 'http://octobercms.com'
+code: Bonjour
+require:
+    - RainLab.Pages
+    - RainLab.Translate

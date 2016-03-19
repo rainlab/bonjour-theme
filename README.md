@@ -1,2 +1,2 @@
 # bonjour-theme
-A theme that demonstrates multi-lingual content.
+A sample multi-lingual theme for translated content.
