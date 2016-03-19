@@ -1,0 +1,40 @@
+title = "Languages"
+url = "/languages"
+layout = "default"
+==
+<div class="container">
+
+    <div class="title-area">
+        <h3>Available languages</h3>
+    </div>
+
+    <div class="languages-list">
+        <div class="languages">
+            {% for code, name in locales %}
+                <a
+                    href="javascript:;"
+                    data-request="onSwitchLocale"
+                    data-request-data="locale: '{{ code }}'"
+                    class="{{ activeLocale == code ? 'active' }}">
+                    <span class="code">{{ code }}</span>
+                    <span class="name">{{ name }}</span>
+                </a>
+            {% endfor %}
+        </div>
+
+        <div class="more-info">
+            <a href="javascript:toggleHelp('#localeSetup')">
+                Learn more about setting up languages
+            </a>
+        </div>
+    </div>
+</div>
+
+{% put help %}
+    <div id="localeSetup" class="help-popup">
+        <button class="setup-close" type="button" onclick="toggleHelp('#localeSetup')">&times;</button>
+        <div class="setup-content">
+            {% content 'locale-setup.htm' %}
+        </div>
+    </div>
+{% endput %}

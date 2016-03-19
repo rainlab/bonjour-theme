@@ -41,6 +41,10 @@ description = "Default layout"
                         <li class="{% if this.page.id == 'home' %}active{% endif %}"><a href="{{ 'home'|page }}">Home</a></li>
                         <li class="{% if this.page.id == 'languages' %}active{% endif %}"><a href="{{ 'languages'|page }}">Languages</a></li>
                         <li class="{% if this.page.id == 'content' %}active{% endif %}"><a href="{{ 'content'|page }}">Content</a></li>
+                        <li class="{% if this.page.id == 'video' %}active{% endif %}"><a href="{{ 'video'|page }}">Video</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="javascript:toggleHelp('#localeHelp')"><i class="icon-question-sign hidden-xs"></i><span class="visible-xs">Help</span></a></li>
                     </ul>
                     <form class="navbar-form navbar-right">
                         {% component 'localePicker' %}
@@ -54,6 +58,17 @@ description = "Default layout"
         <section id="layout-content">
             {% page %}
         </section>
+
+        <!-- Help popups -->
+        {% placeholder help %}
+
+        <!-- Locale Help -->
+        <div id="localeHelp" class="help-popup">
+            <button class="setup-close" type="button" onclick="toggleHelp('#localeHelp')">&times;</button>
+            <div class="setup-content">
+                {% content 'locale-help.htm' %}
+            </div>
+        </div>
 
         <!-- Scripts -->
         <script src="{{ [
@@ -74,6 +89,13 @@ description = "Default layout"
         ]|theme }}"></script>
         {% framework extras %}
         {% scripts %}
+
+        <script>
+            function toggleHelp(el) {
+                $(el).toggleClass('is-visible');
+                $('body').toggleClass('no-scroll');
+            }
+        </script>
 
     </body>
 </html>
