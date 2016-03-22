@@ -19,6 +19,7 @@
     right: 0;
     opacity: 0;
     .transition(opacity 1.5s ease-in);
+    .transition-delay(.5s);
 
     &.is-loaded {
         opacity: 1;
@@ -32,6 +33,71 @@
         width: 100%;
         margin-top: -24px;
         text-align: center;
+    }
+}
+
+.more-info {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #dcdcda;
+
+    > a {
+        font-size: 1.4rem;
+        color: #b5b5b5;
+        font-weight: 700;
+    }
+}
+
+.messages-list {
+    max-width: 800px;
+    margin: 20px auto;
+
+    .messages {
+        border: 1px solid #dcdcda;
+        background: #eeeeee;
+    }
+
+    .message, .header {
+        width: 100%;
+        overflow: hidden;
+        .code, .value {
+            width: 50%;
+            padding: 2px 5px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .code {
+            float: left;
+        }
+        .value {
+            float: right;
+        }
+    }
+
+    .header {
+        padding-bottom: 5px;
+        .code, .value {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #b5b5b5;
+            font-weight: 700;
+        }
+    }
+
+    .message {
+        border-bottom: 1px solid #dcdcda;
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .code {
+            font-family: monospace;
+        }
+
+        .value {
+            background: #fff;
+            em { color: #b5b5b5; }
+        }
     }
 }
 
@@ -89,18 +155,6 @@
             .name {
                 opacity: 1;
             }
-        }
-    }
-
-    .more-info {
-        margin-top: 20px;
-        padding-top: 10px;
-        border-top: 1px solid #dcdcda;
-
-        > a {
-            font-size: 1.4rem;
-            color: #b5b5b5;
-            font-weight: 700;
         }
     }
 }

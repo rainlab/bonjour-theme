@@ -1,7 +1,13 @@
 <meta charset="utf-8">
-<title>OctoberCMS - {{ this.page.title }}</title>
-<meta name="description" content="{{ this.page.meta_description }}">
-<meta name="title" content="{{ this.page.meta_title }}">
+{% if this.page.meta_title %}
+    <title>{{ this.page.meta_title|_ }} - {{ 'site.name'|_ }}</title>
+    <meta name="title" content="{{ this.page.meta_title|_ }}">
+{% else %}
+    <title>{{ this.page.title }} - {{ 'site.name'|_ }}</title>
+{% endif %}
+{% if this.page.meta_description %}
+    <meta name="description" content="{{ this.page.meta_description|_ }}">
+{% endif %}
 <meta name="author" content="OctoberCMS">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="OctoberCMS">

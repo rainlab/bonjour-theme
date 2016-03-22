@@ -1,0 +1,55 @@
+title = "Messages"
+meta_title = "title.messages"
+url = "/messages"
+layout = "default"
+==
+<?php
+function onStart()
+{
+    $this['messages'] = RainLab\Translate\Models\Message::all();
+}
+?>
+==
+<div class="container">
+
+    <div class="title-area">
+        <h3>{{ this.page.meta_title|_ }}</h3>
+    </div>
+
+    <div class="messages-list">
+        <div class="header">
+            <span class="code">{{ 'Code'|_ }}</span>
+            <span class="value">{{ activeLocaleName }}</span>
+        </div>
+        <div class="messages">
+            {% for message in messages %}
+                <div class="message">
+                    <span class="code">{{ message.code }}</span>
+                    <span class="value">
+                        {% if message.content %}
+                            {{ message.content }}
+                        {% else %}
+                            <em>{{ 'Undefined'|_ }}</em>
+                        {% endif %}
+                    </span>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="more-info">
+            <a href="javascript:toggleHelp('#messagesHelp')">
+                {{ 'Instructions for translating these messages'|_ }}
+            </a>
+        </div>
+    </div>
+
+</div>
+
+{% put help %}
+    <div id="messagesHelp" class="help-popup">
+        <button class="setup-close" type="button" onclick="toggleHelp('#messagesHelp')">&times;</button>
+        <div class="setup-content">
+            {% content 'messages-help.htm' %}
+        </div>
+    </div>
+{% endput %}

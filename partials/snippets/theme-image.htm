@@ -1,0 +1,11 @@
+description = "A quick way to reference an image in the theme."
+
+[viewBag]
+snippetCode = "theme-image"
+snippetName = "Image"
+snippetProperties[src][title] = "Source file"
+snippetProperties[src][type] = "string"
+snippetProperties[src][default] = ""
+snippetProperties[src][options][] = ""
+==
+<img src="{{ ('assets/images/'~src)|theme }}" alt="" class="img-theme img-responsive" />

@@ -1,11 +1,12 @@
 title = "Languages"
+meta_title = "title.languages"
 url = "/languages"
 layout = "default"
 ==
 <div class="container">
 
     <div class="title-area">
-        <h3>Available languages</h3>
+        <h3>{{ this.page.meta_title|_ }}</h3>
     </div>
 
     <div class="languages-list">
@@ -24,7 +25,7 @@ layout = "default"
 
         <div class="more-info">
             <a href="javascript:toggleHelp('#localeSetup')">
-                Learn more about setting up languages
+                {{ 'Learn more about setting up languages'|_ }}
             </a>
         </div>
     </div>

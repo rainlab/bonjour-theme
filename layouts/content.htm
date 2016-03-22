@@ -1,0 +1,56 @@
+description = "Layout for Static Pages"
+
+[localePicker]
+forceUrl = 1
+
+[staticPage]
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        {% partial 'site/meta' %}
+    </head>
+    <body>
+        {% set hasChildren = (staticPage.parent ?: staticPage.page).children %}
+
+        <!-- Header -->
+        <header id="layout-header">
+        </header>
+
+        <!-- Nav -->
+        {% partial 'site/nav' %}
+
+        <!-- Content -->
+        <section id="layout-content">
+            {% if hasChildren %}
+                <div id="layout-subnav">
+                    <div class="container">
+                        {% partial 'site/subnav' page=staticPage.page %}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="container">
+
+                <div class="static-content-page">
+                    <div class="title-area">
+                        <h2>{{ this.page.title }}</h2>
+                    </div>
+
+                    {% page %}
+                </div>
+                {% if placeholder('extraContent') %}
+                    <div class="static-content-extra">
+                        {% placeholder extraContent title="Extra content" %}
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+
+        <!-- Help Popups -->
+        {% placeholder help ignore=true %}
+
+        <!-- Scripts -->
+        {% partial 'site/scripts' %}
+
+    </body>
+</html>

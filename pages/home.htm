@@ -35,9 +35,10 @@ layout = "default"
         }
 
         $('#homeGreetings')
-            .addClass('is-loaded')
             .find('h1:not(:first)')
-            .hide();
+            .hide()
+            .end()
+            .addClass('is-loaded');
 
         setTimeout(function() {
             setInterval(swap, 2000);

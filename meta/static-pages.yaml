@@ -1,0 +1,6 @@
+static-pages:
+    content:
+        content-pages: {  }
+        content-content: {  }
+        content-models: {  }
+        content-urls: {  }

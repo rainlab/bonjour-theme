@@ -1,0 +1,22 @@
+[viewBag]
+title = "URLs"
+url = "/content/urls"
+layout = "content"
+is_hidden = 0
+navigation_hidden = 0
+==
+{% put extraContent %}
+<p>
+    This theme has two layouts that use this component, so to test it out you should enable the setting on the <strong>default.htm</strong> layout and the <strong>content.htm</strong> layout.
+</p>
+{% endput %}
+==
+<p>Would you prefer to include the language code in the page URL? It is possible to preset the desired locale by using a URL prefix.</p>
+
+<p>For example: <strong>http://yoursite.com/en</strong></p>
+
+<p>
+    You may enable prefixes on your website URLs by enabling the setting on the <strong>localePicker</strong> component using the <strong>Force URL schema</strong> option.
+</p>
+
+<figure data-snippet="theme-image" data-property-src="component-picker.png"></figure>
