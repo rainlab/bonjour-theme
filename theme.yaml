@@ -18,3 +18,14 @@ translate:
         title.languages: 'Available Languages'
         title.messages: 'Translated Messages'
         title.video: 'Screencast Video'
+    de:
+        site.name: 'Guten Tag'
+        nav.home: 'Startseite'
+        nav.languages: 'Sprachen'
+        nav.messages: 'Nachrichten'
+        nav.content: 'Inhalte'
+        nav.video: 'Video'
+        title.languages: 'Verfügbare Sprachen'
+        title.messages: 'Übersetze Nachrichten'
+        title.video: 'Screencast Video'
+        
