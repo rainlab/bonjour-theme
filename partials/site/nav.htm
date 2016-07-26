@@ -8,7 +8,7 @@ code = "main-menu"
 
     {% for item in items %}
         {% if item.items %}
-            <li role="presentation" class="dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+            <li role="presentation" class="dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }} {{ item.viewBag.cssClass }}">
                 <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">
                     {{ item.code ? ('nav.'~item.code)|_ : item.title }} <span class="caret"></span>
                 </a>
@@ -17,7 +17,7 @@ code = "main-menu"
                 </ul>
             </li>
         {% else %}
-            <li role="presentation" class="{{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }}">
+            <li role="presentation" class="{{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }} {{ item.viewBag.cssClass }}">
                 <a href="{{ item.url }}">{{ item.code ? ('nav.'~item.code)|_ : item.title }}</a>
             </li>
         {% endif %}
