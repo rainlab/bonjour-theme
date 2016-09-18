@@ -1,9 +1,9 @@
 <meta charset="utf-8">
 {% if this.page.meta_title %}
-    <title>{{ this.page.meta_title|_ }} - {{ 'site.name'|_ }}</title>
+    <title>{{ this.page.meta_title|_ }} - {{ 'OctoberCMS'|_ }}</title>
     <meta name="title" content="{{ this.page.meta_title|_ }}">
 {% else %}
-    <title>{{ this.page.title }} - {{ 'site.name'|_ }}</title>
+    <title>{{ this.page.title }} - {{ 'OctoberCMS'|_ }}</title>
 {% endif %}
 {% if this.page.meta_description %}
     <meta name="description" content="{{ this.page.meta_description|_ }}">
@@ -11,7 +11,7 @@
 <meta name="author" content="OctoberCMS">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="OctoberCMS">
-<link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
+<link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
 {% styles %}
 <link href="{{ [
     'assets/css/theme.css'
