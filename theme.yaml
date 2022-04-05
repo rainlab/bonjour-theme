@@ -3,6 +3,7 @@ description: 'A sample multi-lingual theme for translated content.'
 author: RainLab
 homepage: 'http://octobercms.com'
 code: Bonjour
+authorCode: RainLab
 require:
     - RainLab.Pages
     - RainLab.Translate
@@ -28,4 +29,4 @@ translate:
         title.languages: 'Verfügbare Sprachen'
         title.messages: 'Übersetze Nachrichten'
         title.video: 'Screencast Video'
-        
+

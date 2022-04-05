@@ -11,12 +11,14 @@
     </div>
     <div class="col-sm-8">
         <ul class="nav nav-pills pull-right">
-            {% for childPage in childPages if not childPage.navigation_hidden %}
-                <li class="{{ page.url == childPage.url ? 'active' }}">
-                    <a href="{{ childPage.url|app }}">
-                        {{ childPage.title }}
-                    </a>
-                </li>
+            {% for childPage in childPages %}
+                {% if not childPage.navigation_hidden %}
+                    <li class="{{ page.url == childPage.url ? 'active' }}">
+                        <a href="{{ childPage.url|app }}">
+                            {{ childPage.title }}
+                        </a>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
     </div>
