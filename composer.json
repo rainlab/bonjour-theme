@@ -1,0 +1,8 @@
+{
+    "name": "rainlab/bonjour-theme",
+    "type": "october-theme",
+    "description": "A sample multi-lingual theme for translated content.",
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
