@@ -11,14 +11,12 @@ meta_title = "title.languages"
 
     <div class="languages-list">
         <div class="languages">
-            {% for code, name in locales %}
+            {% for site in sitePicker.sites %}
                 <a
-                    href="javascript:;"
-                    data-request="onSwitchLocale"
-                    data-request-data="locale: '{{ code }}'"
-                    class="{{ activeLocale == code ? 'active' }}">
-                    <span class="code">{{ code }}</span>
-                    <span class="name">{{ name }}</span>
+                    href="{{ site.url }}"
+                    class="{{ this.site.id == site.id ? 'active' }}">
+                    <span class="code">{{ site.locale }}</span>
+                    <span class="name">{{ site.name }}</span>
                 </a>
             {% endfor %}
         </div>
