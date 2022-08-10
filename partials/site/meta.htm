@@ -12,8 +12,11 @@
 <meta name="author" content="OctoberCMS">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="OctoberCMS">
+{% for site in sitePicker.sites %}
+<link rel="alternate" hreflang="{{ site.locale }}" href="{{ site.url }}" />
+{% endfor %}
 <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}" />
 {% styles %}
 <link href="{{ [
     'assets/css/theme.css'
-]|theme }}" rel="stylesheet">
+]|theme }}" rel="stylesheet" />

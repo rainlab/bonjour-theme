@@ -50,7 +50,7 @@ code = "main-menu"
             </ul>
             <form class="navbar-form navbar-right">
                 <select class="form-control" onchange="window.location.assign(this.value)">
-                    {% for site in this.sites.listEnabled %}
+                    {% for site in sitePicker.sites %}
                         <option value="{{ site.url }}" {{ this.site.code == site.code ? 'selected' }}>{{ site.name }}</option>
                     {% endfor %}
                 </select>
