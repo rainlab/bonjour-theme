@@ -6,7 +6,7 @@ layout = "default"
 <?php
 function onStart()
 {
-    $this['messages'] = RainLab\Translate\Models\Message::all();
+    $this['messages'] = RainLab\Translate\Models\Message::getMessages();
 }
 ?>
 ==
@@ -22,12 +22,12 @@ function onStart()
             <span class="value">{{ activeLocaleName }}</span>
         </div>
         <div class="messages">
-            {% for message in messages %}
+            {% for key, message in messages %}
                 <div class="message">
-                    <span class="code">{{ message.code }}</span>
+                    <span class="code">{{ key }}</span>
                     <span class="value">
-                        {% if message.content %}
-                            {{ message.content }}
+                        {% if message %}
+                            {{ message }}
                         {% else %}
                             <em>{{ 'Undefined'|_ }}</em>
                         {% endif %}
