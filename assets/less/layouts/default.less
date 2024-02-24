@@ -24,6 +24,7 @@ nav#layout-nav {
     background: rgba(255,255,255,.8);
 
     .navbar-brand {
+        padding: 20px;
         padding-left: 50px;
         margin-right: 20px;
         background-image: url('../images/october.png');
@@ -41,6 +42,11 @@ nav#layout-nav {
             text-transform: uppercase;
             font-weight: 700;
             color: #292929;
+            padding: 1rem 1.5rem;
+        }
+        > li > a:hover {
+            text-decoration: none;
+            background-color: #eee;
         }
     }
 }
@@ -65,7 +71,7 @@ nav#layout-nav {
             }
         }
 
-        li.active a {
+        li a.active {
             background: transparent;
             color: #fff;
         }
@@ -97,6 +103,7 @@ nav#layout-nav {
         border: 1px solid #dcdcda;
         margin: 0 auto;
         margin-bottom: 30px;
+        display: block;
     }
 }
 

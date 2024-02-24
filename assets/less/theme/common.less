@@ -1,8 +1,38 @@
 //
-// Pages
+// Common Styles
 //
-// Styles specific to individual pages.
-//
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: "noto", sans-serif;
+    font-size: 1.4rem;
+}
+
+// BS vars
+:root {
+    --bs-body-line-height: 1.7;
+    --bs-body-color: #343F52;
+}
+
+// Disable collapse animation
+.collapsing {
+    transition: none;
+}
+
+.form-control,
+.form-select {
+    font-size: 1.4rem;
+}
+
+.dropdown-menu {
+    font-size: 1.6rem;
+    > li > a {
+        padding-right: 75px;
+    }
+}
 
 .title-area {
     margin-top: 4em;
@@ -18,8 +48,8 @@
     left: 0;
     right: 0;
     opacity: 0;
-    .transition(opacity 1.5s ease-in);
-    .transition-delay(.5s);
+    transition: opacity 1.5s ease-in;
+    transition-delay: .5s;
 
     &.is-loaded {
         opacity: 1;
@@ -138,7 +168,7 @@
         .name {
             margin-left: 10px;
             opacity: .5;
-            .transition(opacity .5s ease);
+            transition: opacity .5s ease;
         }
 
         &.active {
@@ -168,7 +198,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    .transition(opacity .2s ease-in);
+    transition: opacity .2s ease-in;
 
     &.is-visible {
         z-index: 1;
