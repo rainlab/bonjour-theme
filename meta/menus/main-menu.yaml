@@ -5,8 +5,8 @@ items:
         nesting: ''
         type: cms-page
         url: ''
-        code: home
-        reference: home
+        code: index
+        reference: index
         cmsPage: ''
         replace: ''
         viewBag:

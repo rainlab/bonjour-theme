@@ -3,58 +3,56 @@ code = "main-menu"
 ==
 {% import _self as nav %}
 
-{% macro render_menu(items) %}
+{% macro render_menu(items, isDropdown) %}
     {% import _self as nav %}
 
     {% for item in items %}
         {% if item.items %}
-            <li role="presentation" class="dropdown {{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }} {{ item.viewBag.cssClass }}">
-                <a href="{{ item.url }}" class="dropdown-toggle" data-toggle="dropdown">
-                    {{ item.title }} <span class="caret"></span>
+            <li role="presentation" class="nav-item dropdown {{ item.isChildActive ? 'child-active' }} {{ item.viewBag.cssClass }}">
+                <a href="{{ item.url }}" class="nav-link dropdown-toggle {{ item.isActive ? 'active' }}" data-bs-toggle="dropdown">
+                    {{ item.title }}
                 </a>
                 <ul class="dropdown-menu">
-                    {{ nav.render_menu(item.items) }}
+                    {{ nav.render_menu(item.items, true) }}
                 </ul>
             </li>
         {% else %}
-            <li role="presentation" class="{{ item.isActive ? 'active' }} {{ item.isChildActive ? 'child-active' }} {{ item.viewBag.cssClass }}">
-                <a href="{{ item.url }}">{{ item.title }}</a>
+            <li role="presentation" class="{{ not isDropdown ? 'nav-item' }} {{ item.isChildActive ? 'child-active' }} {{ item.viewBag.cssClass }}">
+                <a class="{{ isDropdown ? 'dropdown-item' : 'nav-link' }} {{ item.isActive ? 'active' }}" href="{{ item.url }}">{{ item.title }}</a>
             </li>
         {% endif %}
     {% endfor %}
 {% endmacro %}
 
-<nav id="layout-nav" class="navbar" role="navigation">
+<nav id="layout-nav" class="navbar navbar-expand-lg" role="navigation">
     <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{ 'home'|page }}"></a>
-        </div>
-        <div class="collapse navbar-collapse navbar-main-collapse">
-            {% if mainMenu.menuItems %}
-                <ul class="nav navbar-nav">
-                    {{ nav.render_menu(mainMenu.menuItems) }}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <a class="navbar-brand" href="{{ 'index'|page }}"></a>
+            <div class="collapse navbar-collapse navbar-main-collapse">
+                {% if mainMenu.menuItems %}
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        {{ nav.render_menu(mainMenu.menuItems) }}
+                    </ul>
+                {% endif %}
+                <form class="navbar-nav navbar-right">
+                    <select class="form-select" onchange="window.location.assign(this.value)">
+                        {% for site in sitePicker.sites %}
+                            <option value="{{ site.url }}" {{ this.site.code == site.code ? 'selected' }}>{{ site.name }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+                <ul class="navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:toggleHelp('#localeHelp')">
+                            <i class="bi bi-patch-question-fill d-none d-sm-block"></i>
+                            <span class="d-block d-sm-none">{{ 'Help'|_ }}</span>
+                        </a>
+                    </li>
                 </ul>
-            {% endif %}
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="javascript:toggleHelp('#localeHelp')">
-                        <i class="icon-question-sign hidden-xs"></i>
-                        <span class="visible-xs">{{ 'Help'|_ }}</span>
-                    </a>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-right">
-                <select class="form-control" onchange="window.location.assign(this.value)">
-                    {% for site in sitePicker.sites %}
-                        <option value="{{ site.url }}" {{ this.site.code == site.code ? 'selected' }}>{{ site.name }}</option>
-                    {% endfor %}
-                </select>
-            </form>
+            </div>
         </div>
     </div>
 </nav>

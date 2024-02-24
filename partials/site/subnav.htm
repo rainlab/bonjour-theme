@@ -10,11 +10,11 @@
         </h3>
     </div>
     <div class="col-sm-8">
-        <ul class="nav nav-pills pull-right">
+        <ul class="nav nav-pills justify-content-end">
             {% for childPage in childPages %}
                 {% if not childPage.navigation_hidden %}
-                    <li class="{{ page.url == childPage.url ? 'active' }}">
-                        <a href="{{ childPage.url|app }}">
+                    <li class="nav-item">
+                        <a href="{{ childPage.url|app }}" class="nav-link {{ page.url == childPage.url ? 'active' }}">
                             {{ childPage.title }}
                         </a>
                     </li>

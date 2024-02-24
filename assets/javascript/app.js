@@ -1,7 +1,9 @@
 /*
  * Application
  */
-
-$(document).tooltip({
-    selector: "[data-toggle=tooltip]"
-})
+addEventListener('render', function() {
+    // Tooltips
+    $('[data-bs-toggle="tooltip"]').each(function() {
+        $(this).tooltip();
+    });
+});
